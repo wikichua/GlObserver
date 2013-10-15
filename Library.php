@@ -1,9 +1,9 @@
 <?php
-require_once './Observer.php';
+require_once './GlObserver.php';
 
 class Library
 {
-	use Observer;
+	use GlObserver;
 
 	function updateRecordBooks()
 	{
