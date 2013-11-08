@@ -14,13 +14,22 @@ class GlObserverTest extends \PHPUnit_Framework_TestCase
  		$Subscriber = new Library;
 
  		$Subscriber->__attach('foo', function($a,$b){
- 			echo 'name foo custom testing ' . $a .' '. $b . "\n";
+ 			echo 'notify from foo ' . $a .','. $b . "\n";
  		},[1,2]);
 
- 		$stdClass = new testing;
- 		$Subscriber->__attach($stdClass,'testtest',['abc','123']);
+ 		$testing = new testing;
+ 		$Subscriber->__attach($testing,'testtest',['abc','123']);
+
+		$Subscriber->__notify();
+
+ 		$Subscriber->__notify($testing);
+
+ 		$Subscriber->__detach('foo');
+ 		$Subscriber->__detach($testing);
+
 
  		$Subscriber->__notify();
+
  	}
 
  	public function testCanCallMagicSetterAndGetterInBook()
@@ -109,6 +118,6 @@ class testing
 {
 	function testtest($a,$b)
 	{
-		echo $a .' , ' .$b;
+		echo 'notify from testing ' . $a .','. $b  . "\n";
 	}
 }
