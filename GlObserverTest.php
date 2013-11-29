@@ -13,22 +13,30 @@ class GlObserverTest extends \PHPUnit_Framework_TestCase
  	{
  		$Subscriber = new Library;
 
+ 		// attach or subscribe foo
  		$Subscriber->__attach('foo', function($a,$b){
  			echo 'notify from foo ' . $a .','. $b . "\n";
  		},[1,2]);
 
+ 		// attach or subscribe bar
+ 		$Subscriber->__attach('bar', function($a,$b){
+ 			echo 'notify from bar ' . $a .','. $b . "\n";
+ 		},['a','b']);
+
+ 		// attach or subscribe object testing as key
  		$testing = new testing;
  		$Subscriber->__attach($testing,'testtest',['abc','123']);
 
-		$Subscriber->__notify();
+		$Subscriber->__notify(); // notify all
+ 		$Subscriber->__notify($testing); // notify just testing method
+ 		$Subscriber->__notify('foo'); // notify just foo key
+ 		$Subscriber->__notify(['bar','foo']); // notify specific keys and by its order
 
- 		$Subscriber->__notify($testing);
+ 		$Subscriber->__detach('foo'); // detach foo
+ 		$Subscriber->__notify(); // as already detach foo, so only notify bar and testing
 
- 		$Subscriber->__detach('foo');
- 		$Subscriber->__detach($testing);
-
-
- 		$Subscriber->__notify();
+ 		$Subscriber->__detach($testing); // detach testing object
+		$Subscriber->__notify(); // only left bar in the observer
 
  	}
 

@@ -16,6 +16,8 @@ trait GlObserver
 
 	public function __attach($Observer, $map = null, $args = [])
 	{
+		$map = is_null($map)? 'update':$map;
+		
 		if(!$this->__isset($Observer))
 			$this->__Observers[$this->__getName($Observer)] = [ $Observer, $map, $args ];
 	}
@@ -24,10 +26,10 @@ trait GlObserver
 	{
 		if(is_null($Observer))
 		{
+			$this->__Observers = [];
+		}else{
 			if($this->__isset($Observer))
 				unset($this->__Observers[$this->__getName($Observer)]);
-		}else{
-			$this->__Observers = [];
 		}
 	}
 
@@ -37,17 +39,31 @@ trait GlObserver
 		{
 			if(count($this->__Observers) > 0)
 			{
-				foreach ($this->__Observers as $key => $Obs) {
-					list($obj, $map, $args) = $Obs;
-					$this->__callback($obj, $map, $args);
-				}
+				$this->__doAllCallback($this->__Observers);
 			}
 		}else{
-			if($this->__isset($Observer))
+			if(is_array($Observer))
 			{
-				list($obj, $map, $args) = $this->__Observers[$this->__getName($Observer)];
-				$this->__callback($obj, $map, $args);
-			}
+				foreach ($Observer as $Obs) {
+					$this->__doSingleCallback($Obs);
+				}
+			}else{
+				$this->__doSingleCallback($Observer);
+			}			
+		}
+	}
+
+	protected function __doSingleCallback($Observer)
+	{
+		list($obj, $map, $args) = $this->__Observers[$this->__getName($Observer)];
+		$this->__callback($obj, $map, $args);
+	}
+
+	protected function __doAllCallback($Observer)
+	{
+		foreach ($Observer as $Obs) {
+			list($obj, $map, $args) = $Obs;
+			$this->__callback($obj, $map, $args);
 		}
 	}
 
@@ -66,10 +82,7 @@ trait GlObserver
 	protected function __callback($obj, $map, $args)
 	{
 		if(is_object($obj))
-			if(!is_null($map))
-				call_user_func_array([$obj,$map],$args);
-			else
-				call_user_func_array([$obj,'update'],$args);
+			call_user_func_array([$obj,$map],$args);
 		else
 			call_user_func_array($map,$args);
 	}
