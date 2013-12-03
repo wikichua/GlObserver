@@ -14,12 +14,12 @@ trait GlObserver
 		return FALSE;
 	}
 
-	public function __attach($Observer, $map = null, $args = [])
+	public function __attach($Observer, $map = null)
 	{
 		$map = is_null($map)? 'update':$map;
 		
 		if(!$this->__isset($Observer))
-			$this->__Observers[$this->__getName($Observer)] = [ $Observer, $map, $args ];
+			$this->__Observers[$this->__getName($Observer)] = [ $Observer, $map];
 	}
 
 	public function __detach($Observer = null)
@@ -33,10 +33,15 @@ trait GlObserver
 		}
 	}
 
-	public function __notify($Observer = null)
+	public function __notify($Observer = null, $args = [])
 	{
 		if(is_null($Observer))
 		{
+			if(count($args) > 0)
+			{
+				throw new Exception("Arguments are not allowed when notifying all observers");
+			}
+
 			if(count($this->__Observers) > 0)
 			{
 				$this->__doAllCallback($this->__Observers);
@@ -45,24 +50,25 @@ trait GlObserver
 			if(is_array($Observer))
 			{
 				foreach ($Observer as $Obs) {
-					$this->__doSingleCallback($Obs);
+					$this->__doSingleCallback($Obs,$args);
 				}
 			}else{
-				$this->__doSingleCallback($Observer);
+				$this->__doSingleCallback($Observer,$args);
 			}			
 		}
 	}
 
-	protected function __doSingleCallback($Observer)
+	protected function __doSingleCallback($Observer, $args = [])
 	{
-		list($obj, $map, $args) = $this->__Observers[$this->__getName($Observer)];
+		list($obj, $map) = $this->__Observers[$this->__getName($Observer)];
 		$this->__callback($obj, $map, $args);
 	}
 
 	protected function __doAllCallback($Observer)
 	{
+		$args = [];
 		foreach ($Observer as $Obs) {
-			list($obj, $map, $args) = $Obs;
+			list($obj, $map) = $Obs;
 			$this->__callback($obj, $map, $args);
 		}
 	}
@@ -84,7 +90,17 @@ trait GlObserver
 		if(is_object($obj))
 			call_user_func_array([$obj,$map],$args);
 		else
-			call_user_func_array($map,$args);
+		{
+			if(is_string($map) && preg_match('/^\w+@\w+$/i',$map))
+			{
+				list($obj,$map) = explode('@', $map);	
+				call_user_func_array([$obj,$map],$args);
+			}
+			else
+			{
+				call_user_func_array($map,$args);
+			}
+		}
 	}
 
 }

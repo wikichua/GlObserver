@@ -9,28 +9,34 @@ require_once './Library.php';
  */
 class GlObserverTest extends \PHPUnit_Framework_TestCase
 {
+
+
  	public function testInitiate()
  	{
  		$Subscriber = new Library;
 
  		// attach or subscribe foo
- 		$Subscriber->__attach('foo', function($a,$b){
+ 		$Subscriber->__attach('foo', function($a = '',$b = ''){
  			echo 'notify from foo ' . $a .','. $b . "\n";
- 		},[1,2]);
+	
+ 		});
 
  		// attach or subscribe bar
- 		$Subscriber->__attach('bar', function($a,$b){
+ 		$Subscriber->__attach('bar', function($a = '',$b = ''){
  			echo 'notify from bar ' . $a .','. $b . "\n";
- 		},['a','b']);
+ 		});
 
  		// attach or subscribe object testing as key
  		$testing = new testing;
- 		$Subscriber->__attach($testing,'testtest',['abc','123']);
+ 		$Subscriber->__attach($testing,'testtest');
 
+ 		$Subscriber->__attach('testing','testing@testtest'); // attach with different notify object function
+		$Subscriber->__notify('testing',['fuck','fucker']); // testing@testtest
+	
 		$Subscriber->__notify(); // notify all
- 		$Subscriber->__notify($testing); // notify just testing method
+ 		$Subscriber->__notify($testing,['abc','123']); // notify just testing method
  		$Subscriber->__notify('foo'); // notify just foo key
- 		$Subscriber->__notify(['bar','foo']); // notify specific keys and by its order
+ 		$Subscriber->__notify(['bar','foo'],['abc','123']); // notify specific keys and by its order
 
  		$Subscriber->__detach('foo'); // detach foo
  		$Subscriber->__notify(); // as already detach foo, so only notify bar and testing
@@ -124,7 +130,7 @@ class GlObserverTest extends \PHPUnit_Framework_TestCase
 
 class testing
 {
-	function testtest($a,$b)
+	function testtest($a='',$b='')
 	{
 		echo 'notify from testing ' . $a .','. $b  . "\n";
 	}

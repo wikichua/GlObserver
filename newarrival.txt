@@ -1,0 +1,160 @@
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : PHP Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MySQL Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : MongoDB Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Redis Design Patterns
+Author : WikiChua
+Publisher : PaiPai
+New book has arrive
+Title : Apache Design Patterns
+Author : WikiChua
+Publisher : PaiPai
